@@ -624,14 +624,29 @@ header .badges .badge {
     background-size: cover;
 }
 .pick-your-favorite .inner {
-    
+    padding: 110px 0;
 }
 .pick-your-favorite .text-group {
-    
+    margin-left: 100px;
+    width: 362px;
+    display: flex;
+    flex-wrap: wrap;
 }
 .pick-your-favorite .text-group .title {
-    
+    margin-bottom: 40px;
 }
 .pick-your-favorite .text-group .description{
+    margin-bottom: 40px;
+}
 
+/* RESERVE STORE */
+.reserve-store {
+    background-image: url("../images/reserve_store_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.reserve-store .inner {
+    height: 600px;
 }
