@@ -649,4 +649,44 @@ header .badges .badge {
 }
 .reserve-store .inner {
     height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reserve-store .medal {
+    width: 334px;
+    height: 334px;
+    /* 크기를 지정해줘야 그 영역에서만 돌아감 */
+    perspective: 600px;
+    /* 원근거리 */
+}
+.reserve-store .medal .back,
+.reserve-store .medal .front{
+    width: 334px;
+    height: 334px;
+    backface-visibility: hidden;
+    transition: 1s;
+    position: absolute; 
+}
+.reserve-store .medal .front{
+    /* 부모요소 기준으로 배치하는 것 > 따로 위치를 지정하지 않으면 겹쳐진다. */
+    transform: rotateY(0deg);
+    /* 0도에서 rotate하겠다. */
+}
+.reserve-store .medal:hover .front {
+    transform: rotateY(180deg); 
+}
+.reserve-store .medal .back{
+    transform: rotateY(-180deg); 
+    /* Y축 기준으로 뒤집기 */
+}
+.reserve-store .medal:hover .back {
+    transform: rotateY(0deg);
+}
+.reserve-store .medal .back .btn {
+    position: absolute;
+    top: 240px;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
