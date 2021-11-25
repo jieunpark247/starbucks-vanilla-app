@@ -71,4 +71,38 @@ new Swiper('.promotion .swiper-container', {
       prevEl: '.promotion .swiper-prev', // 이전 버튼 선택자
       nextEl: '.promotion .swiper-next' // 다음 버튼 선택자
     }
-  })
+})
+  
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleBtn = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+promotionToggleBtn.addEventListener('click', function () {
+  isHidePromotion = !isHidePromotion;
+  if (isHidePromotion) {
+    //숨김처리!
+    promotionEl.classList.add('hide'); //hide라는 클래스 추가해줌
+  } else {
+    //보임처리!
+    promotionEl.classList.remove('hide');
+  }
+});
+
+// 범위 랜덤 함수(소수점 2자리까지)
+function random(min, max) {
+  // `.toFixed()`를 통해 반환된 문자 데이터를,
+  // `parseFloat()`을 통해 소수점을 가지는 숫자 데이터로 변환
+  return parseFloat((Math.random() * (max - min) + min).toFixed(2))
+}
+
+function floatingObject(selector, delay, size) {
+  gsap.to(selector, random(1.5, 2.5), {
+    y: size, //내려가는 값
+    repeat: -1, // 반복여부
+    yoyo: true, //위로올라가는것
+    ease: Power1.easeInOut,
+    delay: delay
+  });
+}
+floatingObject('.floating1', 1, 15)
+floatingObject('.floating2', .5, 15)
+floatingObject('.floating3', 1.5, 20)
